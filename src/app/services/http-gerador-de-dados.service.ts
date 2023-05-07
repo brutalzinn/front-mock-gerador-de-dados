@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { IPlaceholder } from '../interfaces/placeholder.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +23,7 @@ export class HttpGeradorDeDadosService {
     return this.http.post<string>(`${environment.envVar.baseUrl}/placeholder`, this.httpOptions);
   }
 
+  obterPlaceholder() : Observable<IPlaceholder[]> {
+    return this.http.get<IPlaceholder[]>(`${environment.envVar.baseUrl}/placeholder`, this.httpOptions);
+  }
 }
