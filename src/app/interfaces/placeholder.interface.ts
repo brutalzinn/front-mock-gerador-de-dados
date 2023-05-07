@@ -1,5 +1,6 @@
 export interface ITab {
-  variavel: string;
-  uso: string;
-  descricao: string;
+  key: string;
+  args: string[];
+  multipleparams: boolean;
+  description: string;
 };
