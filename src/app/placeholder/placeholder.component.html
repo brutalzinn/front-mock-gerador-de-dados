@@ -1,0 +1,48 @@
+<button class="btn btn-primary btn-sm" (click)="open()">Placeholders</button>
+<div
+  class="modal"
+   role="dialog"
+  [ngStyle]="{'display':this.displayStyle}"
+  >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+        <h3>Placeholder</h3>
+        <br/>
+        </div>
+         <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+      <div *ngFor="let item of this.placeholdersList">
+        <div class="form-group">
+          [{{item.key}}]
+        </div>
+          {{item.description}}
+        <div *ngIf="item.args.length > 0"  class="form-group">
+          [{{item.args}}]
+        </div>
+          <div class="input-group mb-3">
+         <input class="form-control" disabled value="{{item.key}}" type="text">
+         <button type="button" class="btn btn-primary" (click)="this.copiarDadoAreaTransferencia(item.key)">Copiar</button>
+      </div>
+      <div id="alert-{{item.key}}" class="alert alert-info" style="display:none; width: 75%;" role="alert">
+          {{ item.key }} copiado para transferência
+      </div>
+      </div>
+
+
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+                (click)="close()"  data-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

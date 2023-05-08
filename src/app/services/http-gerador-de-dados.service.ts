@@ -12,15 +12,17 @@ export class HttpGeradorDeDadosService {
   constructor(private http: HttpClient){
 
   }
-  httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'ApiKey': environment.envVar.apiKey
-  })
+  httpOptions : Object = {
+      headers: new HttpHeaders({
+        'Content-Type':  'text/plain; charset=utf-8',
+        'ApiKey': environment.envVar.apiKey
+      }),
+
   };
 
-  processarTexto(text: string) : Observable<string> {
-    return this.http.post<string>(`${environment.envVar.baseUrl}/placeholder`, this.httpOptions);
+
+  processarTexto(text: string) : Observable<any> {
+    return this.http.post(`${environment.envVar.baseUrl}/placeholder`, text, {...this.httpOptions, responseType: 'text'});
   }
 
   obterPlaceholder() : Observable<IPlaceholder[]> {

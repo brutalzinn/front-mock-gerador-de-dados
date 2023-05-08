@@ -12,8 +12,6 @@ export class AppComponent  {
   title = 'Gerador CPFCNPJ';
 
   constructor (private acessibilidadeService: AcessibilidadeService, private renderer: Renderer2) {}
-
-
     ngOnInit(): void {
     this.acessibilidadeService.themeChanges().subscribe(theme => {
       if (theme.oldValue) {
