@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col">
         <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <label for="exampleFormControlTextarea1">Texto original</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="texto" rows="10"></textarea>
         </div>
     </div>
@@ -12,13 +12,27 @@
 
       <div class="row justify-content-sm-end">
           <div class="col col-lg-auto">
-            <button type="button" class="btn btn-secondary" [disabled]="!this.processado" (click)="this.copiarTextoProcessado()">Copiar</button>
-            <button type="button" class="btn btn-secondary" (click)="this.processarTexto()">Processar</button>
+            <button type="button" class="btn btn-primary" (click)="this.processarTexto()">Processar</button>
           </div>
       </div>
-    <div *ngIf="this.processado" class="alert alert-danger">
+    <div *ngIf="!this.processado" class="alert alert-danger">
         Processando...
     </div>
+
+    <div class="row" >
+    <div class="col">
+        <div class="form-group">
+        <label for="exampleFormControlTextarea1">Texto processado</label>
+        <textarea class="form-control"  id="exampleFormControlTextarea1" formControlName="texto" rows="10" [value]="this.textoProcessado"></textarea>
+        </div>
+    </div>
+      <div class="row justify-content-sm-end">
+          <div class="col col-lg-auto">
+            <button type="button" class="btn btn-primary" (click)="this.copiarTextoProcessado()">Copiar</button>
+          </div>
+      </div>
+  </div>
+
 </div>
 
 </form>

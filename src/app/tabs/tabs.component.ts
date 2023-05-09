@@ -30,7 +30,9 @@ export class TabsComponent implements OnInit {
       response => {
         console.log(response)
          this.textoProcessado = response
+         setTimeout(() => {
          this.processado = true;
+         }, 500);
       })
 
   }
