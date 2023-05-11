@@ -14,10 +14,15 @@ export class TabsComponent implements OnInit {
 
   constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
       this.formulario = new FormGroup({
-          texto: new FormControl("", Validators.minLength(1))
+          texto: new FormControl(`//Use o botão "placeholders" para obter a lista de placeholders disponíveis.
+//Exemplo [GUID]
+{
+"CPF":"[CPF]"
+}` , Validators.minLength(1))
       })
       this.processado = true;
-      this.textoProcessado = "teste";
+      this.textoProcessado = "";
+      this.processarTexto()
   }
 
 

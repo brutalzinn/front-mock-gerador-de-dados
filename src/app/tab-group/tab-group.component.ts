@@ -13,7 +13,7 @@ export class TabGroupComponent implements OnInit {
   public formulario: FormGroup;
   constructor() {
       this.formulario = new FormGroup({
-          nomeTab: new FormControl("")
+          nomeTab: new FormControl("Sem nome")
       })
       this.tabs = []
   }
@@ -38,6 +38,6 @@ export class TabGroupComponent implements OnInit {
   }
 
     get nomeTab (): string {
-    return this.formulario.get('nomeTab')?.value ?? ""
+    return this.formulario.get('nomeTab')?.value
   }
 }
