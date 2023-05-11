@@ -1,19 +1,26 @@
 
   <form [formGroup]="this.formulario">
-  <div class="col col-lg-auto">
+  <div class="col">
   <div class="input-group mb-3">
     <span class="input-group-text">Nome:</span>
       <input class="form-control" placeholder="Nome tab" type="text" formControlName="nomeTab" />
       <button type="button" class="btn btn-primary" (click)="this.adicionarTab(this.nomeTab)">Nova aba</button>
-    </div>
+  </div>
+  </div>
+<div class="col">
+  <div lass="input-group mb-3">
+        <tab-menu [tabs]="this.tabs"></tab-menu>
+  </div>
+</div>
+<div class="col">
     <div class="input-group mb-3">
         <div *ngFor="let tab of this.tabs; let i = index">
-               <button type="button" (click)="this.exibirTab(i)" class="btn btn-primary">{{tab.nome}}</button>
+               <button type="button" (click)="this.exibirTab(i)" class="btn btn-primary">{{this.tab.nome}}</button>
         </div>
     </div>
-  </div>
-  </form>
-
-   <div *ngFor="let tab of this.tabs; let i = index">
-      <tab-page [hidden]="!tab.visivel"></tab-page>
-  </div>
+</div>
+</form>
+<div *ngFor="let tab of this.tabs; let i = index">
+      <button type="button" (click)="this.excluirTab(i)" [hidden]="!this.tab.visivel" class="btn btn-danger">Excluir</button>
+      <tab-page [currentTab]="this.tab" [hidden]="!this.tab.visivel"></tab-page>
+</div>

@@ -9,6 +9,7 @@ import { AcessibilidadeComponent } from './acessibilidade/acessibilidade.compone
 import { TabsComponent } from './tab-page/tab-page.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
+import { TabMenuComponent } from './tab-menu/tab-menu.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TabGroupComponent } from './tab-group/tab-group.component';
     TabsComponent,
     PlaceholderComponent,
     TabGroupComponent,
+    TabMenuComponent,
   ],
   imports: [
     BrowserModule,

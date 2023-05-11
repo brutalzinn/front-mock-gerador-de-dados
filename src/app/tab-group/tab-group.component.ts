@@ -13,19 +13,22 @@ export class TabGroupComponent implements OnInit {
   public formulario: FormGroup;
   constructor() {
       this.formulario = new FormGroup({
-          nomeTab: new FormControl("Sem nome")
+          nomeTab: new FormControl("")
       })
       this.tabs = []
   }
 
   ngOnInit(): void {
-      this.adicionarTab("Sem nome", true)
+      this.adicionarTab("", true)
   }
 
-  adicionarTab(nomeTab: string, visivel: boolean = false): void{
+  adicionarTab(nomeTab: string, visivel: boolean = false): void {
+    if(nomeTab == ""){
+      nomeTab = "Nova aba " + this.tabs.length
+    }
     let tab : ITab = {
       nome: nomeTab,
-      visivel: visivel
+      visivel: visivel,
     }
     this.tabs = [...this.tabs, tab]
   }
@@ -35,6 +38,10 @@ export class TabGroupComponent implements OnInit {
           this.tabs[i].visivel = false
     }
       this.tabs[index].visivel = true
+  }
+
+  excluirTab(index: number): void{
+      this.tabs.splice(index, 1)
   }
 
     get nomeTab (): string {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpGeradorDeDadosService } from '../services/http-gerador-de-dados.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ITab } from '../interfaces/tab.interface';
 
 @Component({
   selector: 'tab-page',
@@ -8,17 +9,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./tab-page.component.scss']
 })
 export class TabsComponent implements OnInit {
+  @Input() currentTab!: ITab;
   public formulario: FormGroup;
   public processado: boolean;
   public textoProcessado: string;
-
-  constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
-      this.formulario = new FormGroup({
-          texto: new FormControl(`//Use o botão "placeholders" para obter a lista de placeholders disponíveis.
+  public exemplo : string = `//Use o botão "placeholders" para obter a lista de placeholders disponíveis.
 //Exemplo [GUID]
 {
 "CPF":"[CPF]"
-}` , Validators.minLength(1))
+}`;
+
+  constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
+      this.formulario = new FormGroup({
+          texto: new FormControl("", Validators.minLength(1))
       })
       this.processado = true;
       this.textoProcessado = "";
@@ -27,6 +30,7 @@ export class TabsComponent implements OnInit {
 
 
   ngOnInit(): void {
+      this.formulario.get('texto')?.setValue(this.currentTab.texto)
   }
 
   processarTexto(){
@@ -36,10 +40,13 @@ export class TabsComponent implements OnInit {
         console.log(response)
          this.textoProcessado = response
          setTimeout(() => {
-         this.processado = true;
+              this.processado = true;
          }, 500);
       })
 
+  }
+  salvar(){
+    this.currentTab.texto = this.texto
   }
 
   copiarTextoProcessado(){
@@ -55,5 +62,4 @@ export class TabsComponent implements OnInit {
   get texto (): string {
     return this.formulario.get('texto')?.value ?? ""
   }
-
 }
