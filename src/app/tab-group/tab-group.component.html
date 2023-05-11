@@ -1,0 +1,19 @@
+
+  <form [formGroup]="this.formulario">
+  <div class="col col-lg-auto">
+  <div class="input-group mb-3">
+    <span class="input-group-text">Nome:</span>
+      <input class="form-control" placeholder="Nome tab" type="text" formControlName="nomeTab" />
+      <button type="button" class="btn btn-primary" (click)="this.adicionarTab(this.nomeTab)">Nova aba</button>
+    </div>
+    <div class="input-group mb-3">
+        <div *ngFor="let tab of this.tabs; let i = index">
+               <button type="button" (click)="this.exibirTab(i)" class="btn btn-primary">{{tab.nome}}</button>
+        </div>
+    </div>
+  </div>
+  </form>
+
+   <div *ngFor="let tab of this.tabs; let i = index">
+      <tab-page [hidden]="!tab.visivel"></tab-page>
+  </div>

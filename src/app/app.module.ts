@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AcessibilidadeComponent } from './acessibilidade/acessibilidade.component';
-import { TabsComponent } from './tabs/tabs.component';
+import { TabsComponent } from './tab-page/tab-page.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { TabGroupComponent } from './tab-group/tab-group.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     AcessibilidadeComponent,
     TabsComponent,
     PlaceholderComponent,
+    TabGroupComponent,
   ],
   imports: [
     BrowserModule,

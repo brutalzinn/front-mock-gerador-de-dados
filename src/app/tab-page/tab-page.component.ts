@@ -3,9 +3,9 @@ import { HttpGeradorDeDadosService } from '../services/http-gerador-de-dados.ser
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'tab-group',
-  templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  selector: 'tab-page',
+  templateUrl: './tab-page.component.html',
+  styleUrls: ['./tab-page.component.scss']
 })
 export class TabsComponent implements OnInit {
   public formulario: FormGroup;
@@ -17,7 +17,7 @@ export class TabsComponent implements OnInit {
           texto: new FormControl("", Validators.minLength(1))
       })
       this.processado = true;
-      this.textoProcessado = "";
+      this.textoProcessado = "teste";
   }
 
 
