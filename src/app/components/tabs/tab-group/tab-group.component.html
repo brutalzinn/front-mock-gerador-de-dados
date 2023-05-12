@@ -4,7 +4,9 @@
   <div class="input-group mb-3">
     <span class="input-group-text">Nome:</span>
       <input class="form-control" placeholder="Nome tab" type="text" formControlName="nameTab" />
-      <button type="button" class="btn btn-primary" (click)="this.adicionarTab(this.nameTab)">Nova aba</button>
+      <button type="button" class="btn btn-primary" (click)="this.adicionarTab(this.nameTab)">
+      <app-translator key="btn_text_new_tab"></app-translator>
+      </button>
   </div>
   </div>
 <div class="col">
@@ -21,6 +23,8 @@
 </div>
 </form>
 <div *ngFor="let tab of this.tabs; let i = index">
-      <button type="button" (click)="this.excluirTab(i)" [hidden]="!this.tab.visivel" class="btn btn-danger">Excluir</button>
+      <button type="button" (click)="this.excluirTab(i)" [hidden]="!this.tab.visivel" class="btn btn-danger">
+      <app-translator key="btn_text_remove_tab"></app-translator>
+      </button>
       <app-tab-page [currentTab]="this.tab" [hidden]="!this.tab.visivel"></app-tab-page>
 </div>

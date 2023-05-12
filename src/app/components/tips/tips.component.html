@@ -1,10 +1,18 @@
 <div class="meu-sticky" *ngIf="this.exibirDica">
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Gostou do projeto?</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Apoie o desenvolvimento :)</h6>
-    <a href="https://github.com/brutalzinn/front-mock-gerador-de-dados" target=”_blank” class="card-link">Sim</a>
-    <a (click)="this.esconderDica()" class="card-link">Fechar</a>
+    <h5 class="card-title">
+      <app-translator key="label_tips_0_title"></app-translator>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <app-translator key="label_tips_0_subject"></app-translator>
+    </h6>
+    <a href="https://github.com/brutalzinn/front-mock-gerador-de-dados" target=”_blank” class="card-link">
+    <app-translator key="btn_tips_0_ok"></app-translator>
+    </a>
+    <a (click)="this.esconderDica()" class="card-link">
+      <app-translator key="btn_tips_0_close"></app-translator>
+    </a>
   </div>
 </div>
 </div>

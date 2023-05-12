@@ -1,5 +1,7 @@
 <div class="input-group">
   <input type="file" (change)="this.carregarArquivoDocumentos($event)" class="form-control"
         class="btn btn-primary" />
-  <button type="button" (click)="this.baixarArquivoDocumento()" class="btn btn-primary">Baixar lista</button>
+  <button type="button" (click)="this.baixarArquivoDocumento()" class="btn btn-primary">
+  <app-translator key="btn_text_download_list"></app-translator>
+  </button>
 </div>

@@ -1,19 +1,23 @@
 # FRONT MOCK GERADOR DE DADOS
 
-# Objetivo
+# Goals
 
-Usar o pacote [string-placeholder](https://github.com/brutalzinn/string-placeholder) para ser usado por uma aplicação web de forma explícita.
-# Recursos
+Uses nuget package [string-placeholder](https://github.com/brutalzinn/string-placeholder) to be used by a web application to a complete view about the library.
+# Resources
 
-- Gerenciamento de abas
-- Exportar/Importar mocks
-- Modo escuro
+- Tab management
+- Export/Import mockups
+- Theme manager
+- Multi language system
 
-# Recursos planejados
+# Next resources
 
-- Suporte a multi idiomas (pt, en, e fr)
-- Variáveis customizadas para mocks
+- Custom vars to easily mock with dynamic generation
 
 # URL
 
 https://mock.robertocpaes.dev
+
+# URL PREVIEW (DEV BRANCH)
+
+https://previewmock.robertocpaes.dev

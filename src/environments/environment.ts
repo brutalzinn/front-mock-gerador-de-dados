@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   envVar: {
       baseUrl: "https://geradordedocumentos.boberto.net",
-      apiKey: "naruto"
+      apiKey: "naruto",
+      tipsTime: 300000
   }
 };
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tips',
@@ -11,7 +12,7 @@ export class DicasComponent implements OnInit {
   ngOnInit(): void {
       setTimeout(() => {
       this.exibirDica = true
-    }, 300000);
+    }, environment.envVar.tipsTime);
   }
   esconderDica(){
       this.exibirDica = false

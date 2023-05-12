@@ -12,7 +12,63 @@
     "value": "Theme"
   },
   {
+    "key": "btn_text_new_tab",
+    "value": "New tab"
+  },
+  {
+    "key": "btn_text_remove_tab",
+    "value": "Delete tab"
+  },
+  {
+    "key": "btn_text_download_list",
+    "value": "Download changes"
+  },
+  {
     "key": "btn_text_placeholder",
     "value": "Placeholder"
+  },
+  {
+    "key": "label_original_text",
+    "value": "Original text"
+  },
+  {
+    "key": "label_processed_text",
+    "value": "Processed text"
+  },
+  {
+    "key": "label_processing_text",
+    "value": "Processing.."
+  },
+  {
+    "key": "btn_text_save",
+    "value": "Save"
+  },
+  {
+    "key": "btn_process",
+    "value": "Process text"
+  },
+  {
+    "key": "btn_text_copy",
+    "value": "Copy"
+  },
+  {
+    "key": "label_credits",
+    "value": "Developed with"
+  },
+  {
+    "key": "label_tips_0_title",
+    "value": "Do you like this project?"
+  },
+  {
+    "key": "label_tips_0_subject",
+    "value": "Support the development :)"
+  },
+  {
+    "key": "btn_tips_0_ok",
+    "value": "Yes"
+  },
+  {
+    "key": "btn_tips_0_close",
+    "value": "Close"
   }
 ]

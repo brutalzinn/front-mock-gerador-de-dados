@@ -12,7 +12,59 @@
     "value": "Tema"
   },
   {
+    "key": "btn_text_new_tab",
+    "value": "Nova aba"
+  },
+  {
+    "key": "btn_text_remove_tab",
+    "value": "Excluir aba"
+  },
+  {
     "key": "btn_text_placeholder",
     "value": "Placeholder"
+  },
+  {
+    "key": "label_original_text",
+    "value": "Texto original"
+  },
+  {
+    "key": "btn_text_save",
+    "value": "Salvar"
+  },
+  {
+    "key": "btn_process",
+    "value": "Processar texto"
+  },
+  {
+    "key": "btn_text_download_list",
+    "value": "Baixar mudanças"
+  },
+  {
+    "key": "btn_text_copy",
+    "value": "Copiar"
+  },
+  {
+    "key": "label_processed_text",
+    "value": "Texto processado"
+  },
+  {
+    "key": "label_credits",
+    "value": "Desenvolvido com"
+  },
+  {
+    "key": "label_tips_0_title",
+    "value": "Gostou do projeto?"
+  },
+  {
+    "key": "label_tips_0_subject",
+    "value": "Apoie o desenvolvimento :)"
+  },
+  {
+    "key": "btn_tips_0_ok",
+    "value": "Sim"
+  },
+  {
+    "key": "btn_tips_0_close",
+    "value": "Fechar"
   }
 ]
