@@ -7,7 +7,7 @@ import { LanguageService } from 'src/app/services/language.service';
   styleUrls: ['./translator.component.scss']
 })
 export class TranslatorComponent {
-  @Input() key = 'title';
+  @Input() key = '';
 
   constructor(private languageService: LanguageService) { }
 

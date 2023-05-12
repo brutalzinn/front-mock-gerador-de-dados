@@ -17,5 +17,4 @@ export class DicasComponent implements OnInit {
   esconderDica(){
       this.exibirDica = false
   }
-
 }
