@@ -4,7 +4,7 @@ import { IPlaceholder } from '../interfaces/placeholder.interface';
 import $ from 'jquery';
 
 @Component({
-  selector: 'app-placeholder',
+  selector: 'placeholder',
   templateUrl: './placeholder.component.html',
   styleUrls: ['./placeholder.component.scss']
 })

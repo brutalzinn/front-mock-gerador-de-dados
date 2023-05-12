@@ -10,6 +10,7 @@ import { TabsComponent } from './tab-page/tab-page.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
+import { DicasComponent } from './dicas/dicas.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TabMenuComponent } from './tab-menu/tab-menu.component';
     PlaceholderComponent,
     TabGroupComponent,
     TabMenuComponent,
+    DicasComponent,
   ],
   imports: [
     BrowserModule,

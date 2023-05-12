@@ -10,8 +10,7 @@ import { ITab } from './interfaces/tab.interface';
 })
 export class AppComponent  {
 
-  title = 'Gerador CPFCNPJ';
-  public pessoas: Array<ITab> = [];
+  title = 'Gerador de mocks';
   constructor (private acessibilidadeService: AcessibilidadeService, private renderer: Renderer2) {}
     ngOnInit(): void {
     this.acessibilidadeService.themeChanges().subscribe(theme => {
@@ -21,5 +20,7 @@ export class AppComponent  {
       this.renderer.setAttribute(document.body, "data-bs-theme", theme.newValue);
     })
   }
+
+
 
 }

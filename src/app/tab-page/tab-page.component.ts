@@ -27,7 +27,6 @@ export class TabsComponent implements OnInit {
       this.textoProcessado = "";
   }
 
-
   ngOnInit(): void {
       let textoCarregado = this.currentTab.texto
       if(textoCarregado === undefined){
@@ -70,7 +69,7 @@ export class TabsComponent implements OnInit {
            console.log(`Copiado: ${texto}`);
 
     }, function (err) {
-      console.log("Ocorreu um erro ao copiar.");
+      console.log("Ocorreu um erro ao copiar e eu não vou te contar.");
     });
   }
 

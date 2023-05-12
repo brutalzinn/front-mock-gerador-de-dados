@@ -6,7 +6,7 @@ Usar o pacote [string-placeholder](https://github.com/brutalzinn/string-placehol
 # Recursos
 
 - Gerenciamento de abas
-- Exportar/Importar lista de mocks
+- Exportar/Importar mocks
 - Modo escuro
 
 # Recursos planejados

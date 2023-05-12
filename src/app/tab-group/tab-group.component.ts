@@ -4,7 +4,7 @@ import { ITab } from '../interfaces/tab.interface';
 import { timeout, timer } from 'rxjs';
 
 @Component({
-  selector: 'app-tab-group',
+  selector: 'tab-group',
   templateUrl: './tab-group.component.html',
   styleUrls: ['./tab-group.component.scss']
 })
