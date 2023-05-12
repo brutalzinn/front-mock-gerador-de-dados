@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpGeradorDeDadosService } from '../services/http-gerador-de-dados.service';
-import { IPlaceholder } from '../interfaces/placeholder.interface';
 import $ from 'jquery';
+import { IPlaceholder } from 'src/app/interfaces/placeholder.interface';
+import { HttpGeradorDeDadosService } from 'src/app/services/http-gerador-de-dados.service';
 
 @Component({
   selector: 'placeholder',

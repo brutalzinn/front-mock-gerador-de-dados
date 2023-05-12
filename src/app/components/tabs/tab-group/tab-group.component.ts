@@ -1,19 +1,19 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ITab } from '../interfaces/tab.interface';
+import { ITab } from '../../../interfaces/tab.interface';
 import { timeout, timer } from 'rxjs';
 
 @Component({
-  selector: 'tab-group',
+  selector: 'app-tab-group',
   templateUrl: './tab-group.component.html',
   styleUrls: ['./tab-group.component.scss']
 })
 export class TabGroupComponent implements OnInit {
   public tabs: Array<ITab> = [];
-  public formulario: FormGroup;
+  public form: FormGroup;
   constructor() {
-      this.formulario = new FormGroup({
-          nomeTab: new FormControl("")
+      this.form = new FormGroup({
+          nameTab: new FormControl("")
       })
       this.tabs = []
   }
@@ -22,12 +22,12 @@ export class TabGroupComponent implements OnInit {
       this.adicionarTab("", true)
   }
 
-  adicionarTab(nomeTab: string, visivel: boolean = false): void {
-    if(nomeTab === ""){
-      nomeTab = "Nova aba " + this.tabs.length
+  adicionarTab(nameTab: string, visivel: boolean = false): void {
+    if(nameTab === ""){
+      nameTab = "Nova aba " + this.tabs.length
     }
     let tab : ITab = {
-      nome: nomeTab,
+      name: nameTab,
       visivel: visivel
     }
     this.tabs = [...this.tabs, tab]
@@ -44,7 +44,7 @@ export class TabGroupComponent implements OnInit {
       this.tabs.splice(index, 1)
   }
 
-    get nomeTab (): string {
-    return this.formulario.get('nomeTab')?.value
+    get nameTab (): string {
+    return this.form.get('nameTab')?.value
   }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'dicas',
-  templateUrl: './dicas.component.html',
-  styleUrls: ['./dicas.component.scss']
+  selector: 'app-tips',
+  templateUrl: './tips.component.html',
+  styleUrls: ['./tips.component.scss']
 })
 export class DicasComponent implements OnInit {
   public exibirDica : boolean = false;

@@ -35,6 +35,12 @@
     background-color: #{rgba($normal_dark, .5)};
   }
 
+
+  .form-control::placeholder {
+      color: #{darken(mix($normal_dark, $high_dark, .5), 5%)};
+      opacity: 0.5;
+  }
+
   .modal-body
   {
     background-color: var(--bs-dark);
@@ -78,7 +84,7 @@
   --bs-body-bg: var(--bs-dark);
   --bs-body-bg-rgb: to-rgb($normal_green);
   --bs-tertiary-bg: $normal_green;
-   background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c1/Dirt_background_JE2.png');
+   background-image: url('/assets/themes/minecraft/background.png');
 
   * {
     --bs-btn-bg: #{mix($medium_green, $high_green, .5)};
@@ -96,6 +102,11 @@
     background-color: #{rgba($normal_green, .5)};
   }
 
+  .form-control::placeholder {
+      color: #{darken(mix($normal_green, $high_green, .5), 5%)};
+      opacity: 0.5;
+  }
+
   .modal-body
   {
     background-color: var(--bs-dark);
@@ -110,6 +121,9 @@
   {
     background-color: var(--bs-dark);
   }
+
+
+
   .meu-sticky {
     position: absolute;
     right: 0;

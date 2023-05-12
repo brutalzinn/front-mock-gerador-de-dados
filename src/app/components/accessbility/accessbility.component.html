@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+<select class="form-select" formControlName="theme" (change)="this.toggleTheme()" >
+  <option [ngValue]="theme.theme" *ngFor="let theme of this.listaTemas">{{
+              theme.name
+}}</option>
+</select>
+</form>

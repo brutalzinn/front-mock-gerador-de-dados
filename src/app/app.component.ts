@@ -1,8 +1,5 @@
-import { Component, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
-import { timer } from 'rxjs/internal/observable/timer';
-import $ from 'jquery';
-import { AcessibilidadeService } from './services/acessibilidade.service';
-import { ITab } from './interfaces/tab.interface';
+import { Component, Renderer2 } from '@angular/core';
+import { AccessibilityService } from './services/accessibility.service';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +8,13 @@ import { ITab } from './interfaces/tab.interface';
 export class AppComponent  {
 
   title = 'Gerador de mocks';
-  constructor (private acessibilidadeService: AcessibilidadeService, private renderer: Renderer2) {}
+  constructor (private AccessibilityService: AccessibilityService, private renderer: Renderer2) {}
     ngOnInit(): void {
-    this.acessibilidadeService.themeChanges().subscribe(theme => {
-      if (theme.temaAnterior) {
-        this.renderer.setAttribute(document.body, "data-bs-theme", theme.temaAnterior);
+    this.AccessibilityService.themeChanges().subscribe(theme => {
+      if (theme.themeOld) {
+        this.renderer.setAttribute(document.body, "data-bs-theme", theme.themeOld);
       }
-      this.renderer.setAttribute(document.body, "data-bs-theme", theme.tema);
+      this.renderer.setAttribute(document.body, "data-bs-theme", theme.theme);
     })
   }
-
-
-
 }

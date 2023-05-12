@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+<select class="form-select" formControlName="language" (change)="this.toggleTheme()" >
+  <option [ngValue]="translate.name" *ngFor="let translate of this.listLanguages">{{
+              translate.name
+}}</option>
+</select>
+</form>

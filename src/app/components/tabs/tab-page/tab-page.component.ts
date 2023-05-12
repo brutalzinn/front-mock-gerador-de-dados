@@ -1,16 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpGeradorDeDadosService } from '../services/http-gerador-de-dados.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ITab } from '../interfaces/tab.interface';
+import { ITab } from 'src/app/interfaces/tab.interface';
+import { HttpGeradorDeDadosService } from 'src/app/services/http-gerador-de-dados.service';
 
 @Component({
-  selector: 'tab-page',
+  selector: 'app-tab-page',
   templateUrl: './tab-page.component.html',
   styleUrls: ['./tab-page.component.scss']
 })
 export class TabsComponent implements OnInit {
   @Input() currentTab!: ITab;
-  public formulario: FormGroup;
+  public form: FormGroup;
   public processado: boolean;
   public textoProcessado: string;
   public exemplo : string = `//Use o botão "placeholders" para obter a lista de placeholders disponíveis.
@@ -20,7 +20,7 @@ export class TabsComponent implements OnInit {
 }`;
 
   constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
-      this.formulario = new FormGroup({
+      this.form = new FormGroup({
           texto: new FormControl("", Validators.minLength(1))
       })
       this.processado = true;
@@ -38,12 +38,12 @@ export class TabsComponent implements OnInit {
 
   carregarArquivoImportado(){
       let textoCarregado = this.currentTab.texto
-      this.formulario.get('texto')?.setValue(textoCarregado)
+      this.form.get('texto')?.setValue(textoCarregado)
       this.processarTexto()
   }
 
   carregarTextoExemplo(){
-      this.formulario.get('texto')?.setValue(this.exemplo)
+      this.form.get('texto')?.setValue(this.exemplo)
       this.processarTexto()
   }
 
@@ -74,6 +74,6 @@ export class TabsComponent implements OnInit {
   }
 
   get texto (): string {
-    return this.formulario.get('texto')?.value ?? ""
+    return this.form.get('texto')?.value ?? ""
   }
 }

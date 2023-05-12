@@ -1,5 +1,5 @@
 export interface ITab {
-  nome: string;
+  name: string;
   visivel: boolean;
   texto?: string;
   custom?: [key: string]
