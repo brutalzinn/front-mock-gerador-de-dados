@@ -1,7 +1,16 @@
 <form [formGroup]="form">
-<select class="form-select" formControlName="language" (change)="this.toggleTheme()" >
-  <option [ngValue]="translate.name" *ngFor="let translate of this.listLanguages">{{
-              translate.name
+<div class="input-group mb-3">
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2">
+      <app-translator key="btn_text_language"></app-translator>
+    </span>
+  </div>
+<select class="form-select" formControlName="language" (change)="this.toggleLanguage()" >
+  <option [ngValue]="translate.language" *ngFor="let translate of this.getLanguages()">{{
+          translate.title
 }}</option>
 </select>
+</div>
 </form>
+
+

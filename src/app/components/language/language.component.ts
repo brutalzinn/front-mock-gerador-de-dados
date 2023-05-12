@@ -11,35 +11,27 @@ import { LanguageService } from '../../services/language.service';
 export class LanguageComponent implements OnInit {
 
   public form: FormGroup;
-  public listLanguages: Array<LanguageInterface> = [
-  {
-    name:"English",
-    language:"en",
-    translations: [{key: "title", value: "Mock Generator"}]
-  },
-  {
-    name:"Português",
-    language:"pt",
-    translations: [{key: "title", value: "Gerador de Mocks"}]
-  }
-  ]
-
 
   constructor(private languageService: LanguageService)
   {
     this.form = new FormGroup(
     {
-      language: new FormControl('language')
+      language: new FormControl('en')
     })
   }
 
   ngOnInit(): void {
-    let theme = this.languageService.getLanguage()
-    this.form.get('theme')?.setValue(theme)
+    let lang = this.languageService.getLanguage()
+    this.form.get('language')?.setValue(lang)
   }
 
-  toggleTheme() {
+  toggleLanguage() {
     this.languageService.setLanguage(this.language)
+    console.log(this.language)
+  }
+
+  getLanguages(): Array<LanguageInterface>{
+    return this.languageService.getLanguages();
   }
 
   get language () {

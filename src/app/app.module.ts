@@ -12,6 +12,7 @@ import { TabGroupComponent } from './components/tabs/tab-group/tab-group.compone
 import { TabMenuComponent } from './components/tabs/tab-menu/tab-menu.component';
 import { TabsComponent } from './components/tabs/tab-page/tab-page.component';
 import { DicasComponent } from './components/tips/tips.component';
+import { TranslatorComponent } from './components/translator/translator.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DicasComponent } from './components/tips/tips.component';
     TabMenuComponent,
     DicasComponent,
     LanguageComponent,
+    TranslatorComponent,
   ],
   imports: [
     BrowserModule,

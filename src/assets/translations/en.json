@@ -1,0 +1,18 @@
+[
+  {
+    "key": "title",
+    "value": "Mock Generator"
+  },
+  {
+    "key": "btn_text_language",
+    "value": "Language"
+  },
+  {
+    "key": "btn_text_theme",
+    "value": "Theme"
+  },
+  {
+    "key": "btn_text_placeholder",
+    "value": "Placeholder"
+  }
+]

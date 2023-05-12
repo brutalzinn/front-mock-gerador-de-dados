@@ -1,7 +1,18 @@
 <form [formGroup]="form">
+<div class="input-group mb-3">
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2">
+      <app-translator key="btn_text_theme"></app-translator>
+    </span>
+  </div>
 <select class="form-select" formControlName="theme" (change)="this.toggleTheme()" >
   <option [ngValue]="theme.theme" *ngFor="let theme of this.listaTemas">{{
               theme.name
 }}</option>
 </select>
+</div>
+
 </form>
+
+
+

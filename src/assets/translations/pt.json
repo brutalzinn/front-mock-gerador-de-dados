@@ -1,0 +1,18 @@
+[
+  {
+    "key": "title",
+    "value": "Gerador de mock"
+  },
+  {
+    "key": "btn_text_language",
+    "value": "Idioma"
+  },
+  {
+    "key": "btn_text_theme",
+    "value": "Tema"
+  },
+  {
+    "key": "btn_text_placeholder",
+    "value": "Placeholder"
+  }
+]

@@ -1,4 +1,6 @@
-<button class="btn btn-primary mb-3" (click)="open()">Placeholders</button>
+<button class="btn btn-primary mb-3" (click)="open()">
+    <app-translator key="btn_text_placeholder"></app-translator>
+</button>
 <div
   class="modal"
    role="dialog"
@@ -8,7 +10,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="modal-title">
-        <h3>Placeholder</h3>
+        <h3>
+        <app-translator key="btn_text_placeholder"></app-translator>
+        </h3>
         <br/>
         </div>
          <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">

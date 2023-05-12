@@ -4,7 +4,7 @@ import { IPlaceholder } from 'src/app/interfaces/placeholder.interface';
 import { HttpGeradorDeDadosService } from 'src/app/services/http-gerador-de-dados.service';
 
 @Component({
-  selector: 'placeholder',
+  selector: 'app-placeholder',
   templateUrl: './placeholder.component.html',
   styleUrls: ['./placeholder.component.scss']
 })
