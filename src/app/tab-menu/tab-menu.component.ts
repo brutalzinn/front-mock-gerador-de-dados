@@ -48,6 +48,4 @@ export class TabMenuComponent implements OnInit {
   public limpar(){
     this.tabs.length = 0
   }
-
-
 }

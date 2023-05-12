@@ -23,12 +23,12 @@ export class TabGroupComponent implements OnInit {
   }
 
   adicionarTab(nomeTab: string, visivel: boolean = false): void {
-    if(nomeTab == ""){
+    if(nomeTab === ""){
       nomeTab = "Nova aba " + this.tabs.length
     }
     let tab : ITab = {
       nome: nomeTab,
-      visivel: visivel,
+      visivel: visivel
     }
     this.tabs = [...this.tabs, tab]
   }

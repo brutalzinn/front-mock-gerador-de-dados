@@ -25,12 +25,27 @@ export class TabsComponent implements OnInit {
       })
       this.processado = true;
       this.textoProcessado = "";
-      this.processarTexto()
   }
 
 
   ngOnInit(): void {
-      this.formulario.get('texto')?.setValue(this.currentTab.texto)
+      let textoCarregado = this.currentTab.texto
+      if(textoCarregado === undefined){
+          this.carregarTextoExemplo()
+          return
+      }
+      this.carregarArquivoImportado()
+  }
+
+  carregarArquivoImportado(){
+      let textoCarregado = this.currentTab.texto
+      this.formulario.get('texto')?.setValue(textoCarregado)
+      this.processarTexto()
+  }
+
+  carregarTextoExemplo(){
+      this.formulario.get('texto')?.setValue(this.exemplo)
+      this.processarTexto()
   }
 
   processarTexto(){
