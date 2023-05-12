@@ -10,8 +10,9 @@ import { TemaInterface } from '../interfaces/tema.interface';
 export class AcessibilidadeService {
 
  initialSetting: TemaInterface = {
-    oldValue: '',
-    newValue: 'light'
+    temaAnterior: '',
+    tema: 'dark',
+    nome: 'Dark'
   };
 
   themeSelection: BehaviorSubject<TemaInterface> =  new BehaviorSubject<TemaInterface>(this.initialSetting);
@@ -24,8 +25,9 @@ export class AcessibilidadeService {
   setTheme(theme: string) {
     this.themeSelection.next(
       {
-        oldValue: this.themeSelection.value.newValue,
-        newValue: theme
+        temaAnterior: this.themeSelection.value.temaAnterior,
+        tema: theme,
+        nome: this.themeSelection.value.nome
       });
       localStorage.setItem("theme", theme)
   }
@@ -36,6 +38,6 @@ export class AcessibilidadeService {
 
   getTheme(){
     let theme = localStorage.getItem("theme")
-    return theme || 'light';
+    return theme || 'dark';
   }
 }

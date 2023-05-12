@@ -14,10 +14,10 @@ export class AppComponent  {
   constructor (private acessibilidadeService: AcessibilidadeService, private renderer: Renderer2) {}
     ngOnInit(): void {
     this.acessibilidadeService.themeChanges().subscribe(theme => {
-      if (theme.oldValue) {
-        this.renderer.setAttribute(document.body, "data-bs-theme", theme.oldValue);
+      if (theme.temaAnterior) {
+        this.renderer.setAttribute(document.body, "data-bs-theme", theme.temaAnterior);
       }
-      this.renderer.setAttribute(document.body, "data-bs-theme", theme.newValue);
+      this.renderer.setAttribute(document.body, "data-bs-theme", theme.tema);
     })
   }
 

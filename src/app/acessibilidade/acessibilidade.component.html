@@ -1,6 +1,13 @@
+<form [formGroup]="formulario">
+<select class="form-select" formControlName="tema" (change)="this.toggleTheme()" >
+  <option selected>Selecione o tema</option>
+  <option [ngValue]="tema.tema" *ngFor="let tema of this.listaTemas">{{
+              tema.nome
+}}</option>
 
 
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" [checked]="theme == 'dark'" (click)="toggleTheme()">
-  <label class="form-check-label">Modo escuro</label>
-</div>
+</select>
+
+
+
+</form>

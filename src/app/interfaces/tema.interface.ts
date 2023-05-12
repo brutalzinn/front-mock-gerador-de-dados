@@ -1,4 +1,5 @@
 export interface TemaInterface {
-  oldValue: string;
-  newValue: string;
+  temaAnterior?: string;
+  tema: string;
+  nome: string;
 };

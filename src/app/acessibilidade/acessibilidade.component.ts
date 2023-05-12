@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AcessibilidadeService } from '../services/acessibilidade.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { TemaInterface } from '../interfaces/tema.interface';
 
 @Component({
   selector: 'app-acessibilidade',
@@ -7,21 +9,27 @@ import { AcessibilidadeService } from '../services/acessibilidade.service';
 })
 export class AcessibilidadeComponent implements OnInit {
 
-  theme: string = 'light';
+  public formulario: FormGroup;
+  public listaTemas: Array<TemaInterface> = [{tema:"dark", nome:"Dark" },{tema:"minecraft", nome:"Minecraft" }]
 
-  constructor(private acessibilidadeService: AcessibilidadeService) { }
+  constructor(private acessibilidadeService: AcessibilidadeService)
+  {
+    this.formulario = new FormGroup(
+    {
+      tema: new FormControl('dark')
+    })
+  }
 
   ngOnInit(): void {
-    this.theme = this.acessibilidadeService.getTheme()
+    let tema = this.acessibilidadeService.getTheme()
+    this.formulario.get('tema')?.setValue(tema)
   }
 
   toggleTheme() {
-    if (this.theme === 'light') {
-      this.theme = 'dark';
-    } else  {
-      this.theme = 'light';
-    }
-    this.acessibilidadeService.setTheme(this.theme)
+    this.acessibilidadeService.setTheme(this.tema)
   }
 
+  get tema () {
+    return this.formulario.get('tema')?.value ?? "";
+  }
 }

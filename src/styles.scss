@@ -6,6 +6,7 @@
 @import "/node_modules/bootstrap/scss/helpers";
 @import "/node_modules/bootstrap/scss/utilities/api";
 
+
 [data-bs-theme="dark"] {
 
   $normal_dark: $gray-500;
@@ -34,7 +35,20 @@
     background-color: #{rgba($normal_dark, .5)};
   }
 
+  .modal-body
+  {
+    background-color: var(--bs-dark);
+  }
 
+  .modal-footer
+  {
+    background-color: var(--bs-dark);
+  }
+
+  .modal-header
+  {
+    background-color: var(--bs-dark);
+  }
   .meu-sticky {
     position: absolute;
     right: 0;
@@ -51,8 +65,66 @@
     width: 100%;
     transform: translateY(-10em);
   }
+}
 
-  .footer{
-    text-align: center;
+[data-bs-theme="minecraft"] {
+
+  $normal_green: $green-500;
+  $medium_green: $green-700;
+  $high_green: $green-900;
+
+  --bs-body-color: var(--bs-white);
+  --bs-body-color-rgb: to-rgb($white);
+  --bs-body-bg: var(--bs-dark);
+  --bs-body-bg-rgb: to-rgb($normal_green);
+  --bs-tertiary-bg: $normal_green;
+   background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c1/Dirt_background_JE2.png');
+
+  * {
+    --bs-btn-bg: #{mix($medium_green, $high_green, .5)};
+    --bs-btn-border-color: #{rgba($white, .25)};
+    --bs-btn-hover-bg: #{darken(mix($medium_green, $normal_green, .5), 5%)};
+    --bs-btn-hover-border-color: #{rgba($white, .25)};
+    --bs-btn-active-bg: #{darken(mix($medium_green, $normal_green, .5), 10%)};
+    --bs-btn-active-border-color: #{rgba($white, .5)};
+    --bs-btn-focus-border-color: #{rgba($white, .5)};
+    --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+  }
+
+  .form-control{
+    color: #{darken(mix($normal_green, $high_green, .5), 5%)};
+    background-color: #{rgba($normal_green, .5)};
+  }
+
+  .modal-body
+  {
+    background-color: var(--bs-dark);
+  }
+
+  .modal-footer
+  {
+    background-color: var(--bs-dark);
+  }
+
+  .modal-header
+  {
+    background-color: var(--bs-dark);
+  }
+  .meu-sticky {
+    position: absolute;
+    right: 0;
+    width: 400px;
+  }
+
+  .meu-sticky .card {
+    position: fixed;
+    top: calc(100vh - 7rem);
+    background: #{$normal_green};
+    padding: 3rem;
+    color: #{darken(mix($normal_green, $high_green, .5), 5%)};
+    box-shadow: 0 0 30px rgba(0,0,0, .08);
+    width: 100%;
+    transform: translateY(-10em);
   }
 }
+
