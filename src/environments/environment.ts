@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   envVar: {
-      baseUrl: "http://24.199.104.122:8080",
-      apiKey: "naruto",
-      tipsTime: 10
+      baseUrl: "",
+      apiKey: "",
+      tipsTime: 300000
   }
 };
 
