@@ -2,7 +2,8 @@
 
 # Goals
 
-Uses nuget package [string-placeholder](https://github.com/brutalzinn/string-placeholder) to be used by a web application to a complete view about the library.
+1. Uses nuget package [api-string-placeholder-demo](https://github.com/brutalzinn/api-string-placeholder-demo)
+
 # Resources
 
 - Tab management
