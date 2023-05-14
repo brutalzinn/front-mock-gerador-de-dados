@@ -18,7 +18,7 @@ export class PlaceholderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpGeradorDeDadosService.obterPlaceholder().subscribe(response =>{
+    this.httpGeradorDeDadosService.getPlaceholder().subscribe(response =>{
         this.placeholdersList = response
     })
   }
@@ -31,7 +31,7 @@ export class PlaceholderComponent implements OnInit {
     this.displayStyle = "none";
   }
 
-   copiarDadoAreaTransferencia(chave: any)
+   copyToTransferData(chave: any)
   {
     let placeholder = `[${chave}]`
     navigator.clipboard.writeText(placeholder).then(function () {
@@ -39,10 +39,10 @@ export class PlaceholderComponent implements OnInit {
     }, function (err) {
       console.log("Ocorreu um erro ao copiar", chave);
     });
-    this.notificarDado(chave)
+    this.notifyData(chave)
   }
 
-  notificarDado(chave: string){
+  notifyData(chave: string){
   let classeAlerta: string = `#alert-${chave}`
     $(classeAlerta).fadeIn();
     setTimeout(function () {

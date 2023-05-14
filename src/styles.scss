@@ -101,12 +101,23 @@
     color: #{darken(mix($normal_green, $high_green, .5), 5%)};
     background-color: #{rgba($normal_green, .5)};
   }
-
+  .btn {
+      font-family: 'Minecraft', sans-serif;
+  }
   .form-control::placeholder {
       color: #{darken(mix($normal_green, $high_green, .5), 5%)};
       opacity: 0.5;
+      font-family: 'Minecraft', sans-serif;
   }
-
+  .input-group-text{
+    font-family: 'Minecraft', sans-serif;
+  }
+  .form-select{
+    font-family: 'Minecraft', sans-serif;
+  }
+  .modal{
+    font-family: 'Minecraft', sans-serif;
+  }
   .modal-body
   {
     background-color: var(--bs-dark);
@@ -122,8 +133,6 @@
     background-color: var(--bs-dark);
   }
 
-
-
   .meu-sticky {
     position: absolute;
     right: 0;
@@ -131,14 +140,24 @@
   }
 
   .meu-sticky .card {
+    font-family: 'Minecraft', sans-serif;
     position: fixed;
     top: calc(100vh - 7rem);
-    background: #{$normal_green};
     padding: 3rem;
-    color: #{darken(mix($normal_green, $high_green, .5), 5%)};
-    box-shadow: 0 0 30px rgba(0,0,0, .08);
+    background-image: url('/assets/themes/minecraft/sign.png');
+    color: white;
     width: 100%;
     transform: translateY(-10em);
+  }
+
+  .meu-sticky .card .card-subtitle{
+    text-shadow: white;
+  }
+  a {
+  color: white;
+  }
+  .title{
+    font-family: 'Minecraft', sans-serif;
   }
 }
 

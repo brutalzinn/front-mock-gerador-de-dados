@@ -28,8 +28,16 @@
     "value": "Placeholder"
   },
   {
+    "key": "btn_text_new_name",
+    "value": "New name"
+  },
+  {
     "key": "label_original_text",
     "value": "Original text"
+  },
+  {
+    "key": "label_rename_text",
+    "value": "Rename"
   },
   {
     "key": "label_processed_text",
@@ -70,5 +78,9 @@
   {
     "key": "btn_tips_0_close",
     "value": "Close"
+  },
+  {
+    "key": "btn_text_footer_repository_link",
+    "value": "Access repository"
   }
 ]

@@ -31,7 +31,7 @@
         </div>
           <div class="input-group mb-3">
          <input class="form-control" disabled value="{{item.key}}" type="text">
-         <button type="button" class="btn btn-primary" (click)="this.copiarDadoAreaTransferencia(item.key)">Copiar</button>
+         <button type="button" class="btn btn-primary" (click)="this.copyToTransferData(item.key)">Copiar</button>
       </div>
       <div id="alert-{{item.key}}" class="alert alert-info" style="display:none; width: 75%;" role="alert">
           {{ item.key }} copiado para transferência

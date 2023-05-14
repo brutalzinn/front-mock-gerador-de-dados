@@ -21,11 +21,11 @@ export class HttpGeradorDeDadosService {
   };
 
 
-  processarTexto(text: string) : Observable<any> {
+  processText(text: string) : Observable<any> {
     return this.http.post(`${environment.envVar.baseUrl}/placeholder`, text, {...this.httpOptions, responseType: 'text'});
   }
 
-  obterPlaceholder() : Observable<IPlaceholder[]> {
+  getPlaceholder() : Observable<IPlaceholder[]> {
     return this.http.get<IPlaceholder[]>(`${environment.envVar.baseUrl}/placeholder`, this.httpOptions);
   }
 }

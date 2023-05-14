@@ -30,26 +30,26 @@ export class TabsComponent implements OnInit {
   ngOnInit(): void {
       let textoCarregado = this.currentTab.texto
       if(textoCarregado === undefined){
-          this.carregarTextoExemplo()
+          this.loadTextExample()
           return
       }
-      this.carregarArquivoImportado()
+      this.loadFileImported()
   }
 
-  carregarArquivoImportado(){
+  loadFileImported(){
       let textoCarregado = this.currentTab.texto
       this.form.get('texto')?.setValue(textoCarregado)
-      this.processarTexto()
+      this.processText()
   }
 
-  carregarTextoExemplo(){
+  loadTextExample(){
       this.form.get('texto')?.setValue(this.exemplo)
-      this.processarTexto()
+      this.processText()
   }
 
-  processarTexto(){
+  processText(){
     this.processado = false;
-     this.httpGeradorDeDadosService.processarTexto(this.texto).subscribe(
+     this.httpGeradorDeDadosService.processText(this.texto).subscribe(
       response => {
         console.log(response)
          this.textoProcessado = response
@@ -59,11 +59,11 @@ export class TabsComponent implements OnInit {
       })
 
   }
-  salvar(){
+  save(){
     this.currentTab.texto = this.texto
   }
 
-  copiarTextoProcessado(){
+  copyTextProcessed(){
     let texto = this.textoProcessado
      navigator.clipboard.writeText(this.textoProcessado).then(function () {
            console.log(`Copiado: ${texto}`);

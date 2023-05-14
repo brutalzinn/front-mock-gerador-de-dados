@@ -9,6 +9,8 @@ import { timeout, timer } from 'rxjs';
   styleUrls: ['./tab-group.component.scss']
 })
 export class TabGroupComponent implements OnInit {
+
+  public formToRename: boolean;
   public tabs: Array<ITab> = [];
   public form: FormGroup;
   constructor() {
@@ -16,13 +18,14 @@ export class TabGroupComponent implements OnInit {
           nameTab: new FormControl("")
       })
       this.tabs = []
+      this.formToRename = false
   }
 
   ngOnInit(): void {
-      this.adicionarTab("", true)
+      this.addTab("", true)
   }
 
-  adicionarTab(nameTab: string, visivel: boolean = false): void {
+  addTab(nameTab: string, visivel: boolean = false): void {
     if(nameTab === ""){
       nameTab = "Nova aba " + this.tabs.length
     }
@@ -33,15 +36,25 @@ export class TabGroupComponent implements OnInit {
     this.tabs = [...this.tabs, tab]
   }
 
-  exibirTab(index: number): void{
+  showTab(index: number): void{
     for(let i = 0; i < this.tabs.length; i++){
           this.tabs[i].visivel = false
     }
       this.tabs[index].visivel = true
   }
 
-  excluirTab(index: number): void{
+  excludeTab(index: number): void{
       this.tabs.splice(index, 1)
+  }
+
+  showFormToRename(index: number): void{
+     this.formToRename = true;
+  }
+
+  saveNewName(index: number): void{
+     this.tabs[index].name = this.nameTab
+     this.formToRename = false
+     this.form.get('nameTab')?.setValue("")
   }
 
     get nameTab (): string {

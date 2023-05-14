@@ -7,14 +7,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./tips.component.scss']
 })
 export class DicasComponent implements OnInit {
-  public exibirDica : boolean = false;
+  public showTips : boolean = false;
   constructor() { }
   ngOnInit(): void {
       setTimeout(() => {
-      this.exibirDica = true
+      this.showTips = true
     }, environment.envVar.tipsTime);
   }
-  esconderDica(){
-      this.exibirDica = false
+  hide(){
+      this.showTips = false
   }
 }

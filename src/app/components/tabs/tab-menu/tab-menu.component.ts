@@ -15,13 +15,13 @@ export class TabMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public baixarArquivoDocumento() {
+  public downLoadUpdates() {
     let data = JSON.stringify(this.tabs);
     const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
     saveAs(blob, "list_documents.json");
   }
 
-    public carregarArquivoDocumentos(event: any) {
+    public loadFileByJson(event: any) {
     const reader = new FileReader();
     try {
       reader.onload = (e: any) => {

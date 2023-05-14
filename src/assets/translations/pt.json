@@ -32,6 +32,14 @@
     "value": "Salvar"
   },
   {
+    "key": "label_processing_text",
+    "value": "Processando.."
+  },
+  {
+    "key": "label_rename_text",
+    "value": "Renomear"
+  },
+  {
     "key": "btn_process",
     "value": "Processar texto"
   },
@@ -46,6 +54,10 @@
   {
     "key": "label_processed_text",
     "value": "Texto processado"
+  },
+  {
+    "key": "btn_text_new_name",
+    "value": "Novo nome"
   },
   {
     "key": "label_credits",
@@ -66,5 +78,9 @@
   {
     "key": "btn_tips_0_close",
     "value": "Fechar"
+  },
+  {
+    "key": "btn_text_footer_repository_link",
+    "value": "Acessar repositório"
   }
 ]
