@@ -12,7 +12,7 @@ export class TabsComponent implements OnInit {
   @Input() currentTab!: ITab;
   public form: FormGroup;
   public processado: boolean;
-  public textoProcessado: string;
+  public textProcessado: string;
   public exemplo : string = `//Use o botão "placeholders" para obter a lista de placeholders disponíveis.
 //Exemplo [GUID]
 {
@@ -21,38 +21,33 @@ export class TabsComponent implements OnInit {
 
   constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
       this.form = new FormGroup({
-          texto: new FormControl("", Validators.minLength(1))
+          text: new FormControl("", Validators.minLength(1))
       })
       this.processado = true;
-      this.textoProcessado = "";
+      this.textProcessado = "";
   }
 
   ngOnInit(): void {
-      let textoCarregado = this.currentTab.texto
-      if(textoCarregado === undefined){
-          this.loadTextExample()
-          return
-      }
       this.loadFileImported()
   }
 
   loadFileImported(){
-      let textoCarregado = this.currentTab.texto
-      this.form.get('texto')?.setValue(textoCarregado)
+      let textCarregado = this.currentTab.text
+      this.form.get('text')?.setValue(textCarregado)
       this.processText()
   }
 
   loadTextExample(){
-      this.form.get('texto')?.setValue(this.exemplo)
+      this.form.get('text')?.setValue(this.exemplo)
       this.processText()
   }
 
   processText(){
     this.processado = false;
-     this.httpGeradorDeDadosService.processText(this.texto).subscribe(
+     this.httpGeradorDeDadosService.processText(this.text).subscribe(
       response => {
         console.log(response)
-         this.textoProcessado = response
+         this.textProcessado = response
          setTimeout(() => {
               this.processado = true;
          }, 500);
@@ -60,20 +55,20 @@ export class TabsComponent implements OnInit {
 
   }
   save(){
-    this.currentTab.texto = this.texto
+    this.currentTab.text = this.text
   }
 
   copyTextProcessed(){
-    let texto = this.textoProcessado
-     navigator.clipboard.writeText(this.textoProcessado).then(function () {
-           console.log(`Copiado: ${texto}`);
+    let text = this.textProcessado
+     navigator.clipboard.writeText(this.textProcessado).then(function () {
+           console.log(`Copiado: ${text}`);
 
     }, function (err) {
       console.log("Ocorreu um erro ao copiar e eu não vou te contar.");
     });
   }
 
-  get texto (): string {
-    return this.form.get('texto')?.value ?? ""
+  get text (): string {
+    return this.form.get('text')?.value ?? ""
   }
 }

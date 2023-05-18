@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ITab } from '../../../interfaces/tab.interface';
-import { timeout, timer } from 'rxjs';
 
 @Component({
   selector: 'app-tab-group',
@@ -11,6 +10,8 @@ import { timeout, timer } from 'rxjs';
 export class TabGroupComponent implements OnInit {
 
   public formToRename: boolean;
+  public formAdvanced: boolean;
+
   public tabs: Array<ITab> = [];
   public form: FormGroup;
   constructor() {
@@ -19,6 +20,7 @@ export class TabGroupComponent implements OnInit {
       })
       this.tabs = []
       this.formToRename = false
+      this.formAdvanced =false
   }
 
   ngOnInit(): void {
@@ -31,7 +33,8 @@ export class TabGroupComponent implements OnInit {
     }
     let tab : ITab = {
       name: nameTab,
-      visivel: visivel
+      visivel: visivel,
+      custom: [{key:"example", value:"this is test"}]
     }
     this.tabs = [...this.tabs, tab]
   }
@@ -56,6 +59,7 @@ export class TabGroupComponent implements OnInit {
      this.formToRename = false
      this.form.get('nameTab')?.setValue("")
   }
+
 
     get nameTab (): string {
     return this.form.get('nameTab')?.value

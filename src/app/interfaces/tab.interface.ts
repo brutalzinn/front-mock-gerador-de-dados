@@ -1,6 +1,11 @@
+
+export interface ICustomPlaceholder{
+  key: string,
+  value: string
+}
 export interface ITab {
   name: string;
   visivel: boolean;
-  texto?: string;
-  custom?: [key: string]
+  text?: string;
+  custom?: Array<ICustomPlaceholder>
 };

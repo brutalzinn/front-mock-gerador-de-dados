@@ -1,7 +1,35 @@
-<div class="input-group">
-  <input type="file" (change)="this.loadFileByJson($event)" class="form-control"
-        class="btn btn-primary" />
-  <button type="button" (click)="this.downLoadUpdates()" class="btn btn-primary">
-  <app-translator key="btn_text_download_list"></app-translator>
+<div *ngFor="let tab of this.tabs; let tabIndex = index" [hidden]="!this.tab.visivel">
+  <button type="button" (click)="this.excludeTab(tabIndex)" class="btn btn-danger">
+    <app-translator key="btn_text_remove_tab"></app-translator>
   </button>
+  <button type="button" (click)="this.showFormToRename(tabIndex)" class="btn btn-danger">
+    <app-translator key="label_rename_text"></app-translator>
+  </button>
+
+  <button type="button" (click)="this.showFormAdvanced(tabIndex)" class="btn btn-danger">
+    Avançado
+  </button>
+
+  <div class="col">
+    <div *ngFor="let customVar of this.customPlaceholders; let customVarIndex = index">
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          {{customVar.key}}
+        </span>
+        <input class="form-control" placeholder="VAR {{customVarIndex}}" type="text" value="{{customVar.value}}" />
+        <button type="button" class="btn btn-primary" (click)="this.removeCustomVar(customVarIndex)">
+          Remove var
+        </button>
+      </div>
+    </div>
+  <button type="button" class="btn btn-primary" (click)="this.addCustomVar(tabIndex)">
+    Add var
+  </button>
+
+  <button type="button" class="btn btn-primary" (click)="this.saveTabsAdvanced(tabIndex)">
+  <app-translator key="btn_text_save"></app-translator>
+  </button>
+</div>
+
+<app-tab-page [currentTab]="this.tab" [hidden]="!this.tab.visivel"></app-tab-page>
 </div>

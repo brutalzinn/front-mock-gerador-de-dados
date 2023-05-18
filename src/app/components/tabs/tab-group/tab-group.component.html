@@ -1,48 +1,24 @@
-
-  <form [formGroup]="this.form">
+<form [formGroup]="this.form">
   <div class="col">
-  <div class="input-group mb-3">
-    <span class="input-group-text">Nome:</span>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Nome:</span>
       <input class="form-control" placeholder="Nome tab" type="text" formControlName="nameTab" />
       <button type="button" class="btn btn-primary" (click)="this.addTab(this.nameTab)">
-      <app-translator key="btn_text_new_tab"></app-translator>
+        <app-translator key="btn_text_new_tab"></app-translator>
       </button>
-  </div>
-  </div>
-<div class="col">
-  <div lass="input-group mb-3">
-        <app-tab-menu [tabs]="this.tabs"></app-tab-menu>
-  </div>
-</div>
-<div class="col">
-    <div class="input-group mb-3">
-        <div *ngFor="let tab of this.tabs; let i = index">
-               <button type="button" (click)="this.showTab(i)" [ngClass]="this.tabs[i].visivel ? 'btn btn-primary active' : 'btn btn-primary'">{{this.tab.name}}</button>
-        </div>
     </div>
-</div>
+  </div>
 </form>
-<div *ngFor="let tab of this.tabs; let i = index">
-      <button type="button" (click)="this.excludeTab(i)" [hidden]="!this.tab.visivel" class="btn btn-danger">
-      <app-translator key="btn_text_remove_tab"></app-translator>
-      </button>
-      <button type="button" (click)="this.showFormToRename(i)" [hidden]="!this.tab.visivel" class="btn btn-danger">
-      <app-translator key="label_rename_text"></app-translator>
-      </button>
+  <div class="col">
+    <div class="input-group mb-3">
+      <div *ngFor="let tab of this.tabs; let i = index">
+        <button type="button" (click)="this.showTab(i)" [ngClass]="this.tabs[i].visivel ? 'btn btn-primary active' : 'btn btn-primary'">{{this.tab.name}}</button>
+      </div>
+    </div>
+  </div>
 
-        <form [formGroup]="this.form" *ngIf="this.formToRename" [hidden]="!this.tab.visivel" >
-            <div class="col">
-            <div class="input-group mb-3">
-              <span class="input-group-text">
-              <app-translator key="btn_text_new_name"></app-translator>
-              </span>
-                <input class="form-control" placeholder="Nome tab" type="text" formControlName="nameTab" />
-                <button type="button" class="btn btn-primary" (click)="this.saveNewName(i)">
-                <app-translator key="btn_text_save"></app-translator>
-                </button>
-            </div>
-            </div>
-        </form>
-
-      <app-tab-page [currentTab]="this.tab" [hidden]="!this.tab.visivel"></app-tab-page>
-</div>
+  <div class="col">
+    <div lass="input-group mb-3">
+      <app-tab-menu [tabs]="this.tabs"></app-tab-menu>
+    </div>
+  </div>

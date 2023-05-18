@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TabGroupComponent } from '../tab-group/tab-group.component';
 import saveAs from 'file-saver';
-import { ITab } from 'src/app/interfaces/tab.interface';
+import { ICustomPlaceholder, ITab } from 'src/app/interfaces/tab.interface';
 
 @Component({
   selector: 'app-tab-menu',
@@ -10,41 +10,44 @@ import { ITab } from 'src/app/interfaces/tab.interface';
 })
 export class TabMenuComponent implements OnInit {
   @Input() tabs: Array<ITab> = [];
-
-  constructor() { }
+  public customPlaceholders: Array<ICustomPlaceholder> = [];
+  public formToRename: boolean;
+  public formAdvanced: boolean;
+  constructor() {
+      this.formAdvanced = false
+      this.formToRename = false
+   }
   ngOnInit(): void {
   }
 
-  public downLoadUpdates() {
-    let data = JSON.stringify(this.tabs);
-    const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
-    saveAs(blob, "list_documents.json");
+  excludeTab(tabIndex: number): void{
+      this.tabs.splice(tabIndex, 1)
   }
 
-    public loadFileByJson(event: any) {
-    const reader = new FileReader();
-    try {
-      reader.onload = (e: any) => {
-        let conteudoArquivoJson = JSON.parse(reader.result!.toString());
-        console.log(conteudoArquivoJson)
-        let tabs = Array.from<ITab>(conteudoArquivoJson)
-        this.limpar();
-        tabs.map(item => {
-          this.add(item)
-        })
-      };
-      reader.readAsText(event.target.files[0], 'utf-8');
-    }
-    catch (exception) {
-      alert("Consegui ler essa bagaça não. Rodou o teste?")
-    }
+  showFormToRename(tabIndex: number): void{
+     this.formToRename = true;
   }
 
- public add(tab: ITab) {
-    this.tabs.push(tab);
+  showFormAdvanced(tabIndex: number): void{
+     this.formAdvanced = true;
   }
 
-  public limpar(){
-    this.tabs.length = 0
+  saveTabsAdvanced(tabIndex: number): void{
+    this.tabs[tabIndex].custom = this.customPlaceholders
+    this.closeAdvancedForm()
+  }
+
+  addCustomVar(tabIndex: number): void{
+    this.customPlaceholders?.push({key:"example", value:"this is test"})
+    this.closeAdvancedForm()
+  }
+
+  removeCustomVar(customVarIndex: number): void{
+    this.customPlaceholders.splice(customVarIndex, 1)
+    this.closeAdvancedForm()
+  }
+
+  closeAdvancedForm(){
+    this.formAdvanced = false
   }
 }

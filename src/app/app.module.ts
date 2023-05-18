@@ -13,6 +13,7 @@ import { TabMenuComponent } from './components/tabs/tab-menu/tab-menu.component'
 import { TabsComponent } from './components/tabs/tab-page/tab-page.component';
 import { DicasComponent } from './components/tips/tips.component';
 import { TranslatorComponent } from './components/translator/translator.component';
+import { OptionsComponent } from './options/options.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { TranslatorComponent } from './components/translator/translator.componen
     DicasComponent,
     LanguageComponent,
     TranslatorComponent,
+    OptionsComponent,
   ],
   imports: [
     BrowserModule,
