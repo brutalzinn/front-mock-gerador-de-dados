@@ -2,16 +2,15 @@
   <button type="button" (click)="this.excludeTab(tabIndex)" class="btn btn-danger">
     <app-translator key="btn_text_remove_tab"></app-translator>
   </button>
-  <button type="button" (click)="this.showFormToRename(tabIndex)" class="btn btn-danger">
+  <button type="button" (click)="this.showFormToRename()" class="btn btn-danger">
     <app-translator key="label_rename_text"></app-translator>
   </button>
-
-  <button type="button" (click)="this.showFormAdvanced(tabIndex)" class="btn btn-danger">
+  <button type="button" (click)="this.showFormAdvanced()" class="btn btn-danger">
     Avançado
   </button>
 
-  <div class="col">
-    <div *ngFor="let customVar of this.customPlaceholders; let customVarIndex = index">
+<div class="col" *ngIf="this.formAdvanced">
+    <div *ngFor="let customVar of tab.custom; let customVarIndex = index">
       <div class="input-group mb-3">
         <span class="input-group-text">
           {{customVar.key}}
@@ -22,14 +21,29 @@
         </button>
       </div>
     </div>
-  <button type="button" class="btn btn-primary" (click)="this.addCustomVar(tabIndex)">
-    Add var
-  </button>
-
-  <button type="button" class="btn btn-primary" (click)="this.saveTabsAdvanced(tabIndex)">
-  <app-translator key="btn_text_save"></app-translator>
-  </button>
+    <div class="col" *ngIf="this.formAdvanced">
+      <button type="button" class="btn btn-primary" (click)="this.addCustomVar(tabIndex)">
+        Add var
+      </button>
+      <button type="button" class="btn btn-primary" (click)="this.saveCustomVar(tabIndex)">
+        <app-translator key="btn_text_save"></app-translator>
+      </button>
+    </div>
 </div>
+<form [formGroup]="this.form" *ngIf="this.formToRename" [hidden]="!this.tab.visivel" >
+  <div class="col">
+  <div class="input-group mb-3">
+    <span class="input-group-text">
+    <app-translator key="btn_text_new_name"></app-translator>
+    </span>
+      <input class="form-control" type="text" formControlName="nameTab" />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="this.saveNewName(tabIndex)">
+    <app-translator key="btn_text_save"></app-translator>
+    </button>
+  </div>
+</form>
+
 
 <app-tab-page [currentTab]="this.tab" [hidden]="!this.tab.visivel"></app-tab-page>
 </div>

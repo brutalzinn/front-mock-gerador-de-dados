@@ -7,7 +7,7 @@ import { IPlaceholder } from '../interfaces/placeholder.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpGeradorDeDadosService {
+export class HttpApiPlaceholderClient {
 
   constructor(private http: HttpClient){
 
@@ -20,7 +20,6 @@ export class HttpGeradorDeDadosService {
 
   };
 
-
   processText(text: string) : Observable<any> {
     return this.http.post(`${environment.envVar.baseUrl}/placeholder`, text, {...this.httpOptions, responseType: 'text'});
   }
@@ -28,4 +27,9 @@ export class HttpGeradorDeDadosService {
   getPlaceholder() : Observable<IPlaceholder[]> {
     return this.http.get<IPlaceholder[]>(`${environment.envVar.baseUrl}/placeholder`, this.httpOptions);
   }
+
+  processTextV2(text: string, paramsUrl: string) : Observable<any> {
+    return this.http.post(`${environment.envVar.baseUrl}/v2/placeholder?${paramsUrl}`, text, {...this.httpOptions, responseType: 'text'});
+  }
+
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ITab } from 'src/app/interfaces/tab.interface';
-import { HttpGeradorDeDadosService } from 'src/app/services/http-gerador-de-dados.service';
+import { ICustomPlaceholder, ITab } from 'src/app/interfaces/tab.interface';
+import { HttpApiPlaceholderClient } from 'src/app/services/http.api.placeholder.service';
 
 @Component({
   selector: 'app-tab-page',
@@ -19,7 +19,7 @@ export class TabsComponent implements OnInit {
 "CPF":"[CPF]"
 }`;
 
-  constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService) {
+  constructor(private httpApiPlaceholderClient: HttpApiPlaceholderClient) {
       this.form = new FormGroup({
           text: new FormControl("", Validators.minLength(1))
       })
@@ -44,7 +44,8 @@ export class TabsComponent implements OnInit {
 
   processText(){
     this.processado = false;
-     this.httpGeradorDeDadosService.processText(this.text).subscribe(
+     this.httpApiPlaceholderClient.processText(this.text)
+     .subscribe(
       response => {
         console.log(response)
          this.textProcessado = response
@@ -52,8 +53,25 @@ export class TabsComponent implements OnInit {
               this.processado = true;
          }, 500);
       })
-
   }
+
+  processTextV2(urlParams : Array<ICustomPlaceholder>){
+    this.processado = false;
+    let url = ""
+    for(let item of urlParams){
+      url += `${item.key}=${item.value}`
+    }
+     this.httpApiPlaceholderClient.processTextV2(this.text, url)
+     .subscribe(
+      response => {
+        console.log(response)
+         this.textProcessado = response
+         setTimeout(() => {
+              this.processado = true;
+         }, 500);
+      })
+  }
+
   save(){
     this.currentTab.text = this.text
   }

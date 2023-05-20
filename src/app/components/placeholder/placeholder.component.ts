@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
 import { IPlaceholder } from 'src/app/interfaces/placeholder.interface';
-import { HttpGeradorDeDadosService } from 'src/app/services/http-gerador-de-dados.service';
+import { HttpApiPlaceholderClient } from 'src/app/services/http.api.placeholder.service';
 
 @Component({
   selector: 'app-placeholder',
@@ -13,12 +13,12 @@ export class PlaceholderComponent implements OnInit {
   public placeholdersList : IPlaceholder[];
   displayStyle = "none";
 
-  constructor(private httpGeradorDeDadosService: HttpGeradorDeDadosService){
+  constructor(private httpApiPlaceholderClient: HttpApiPlaceholderClient){
     this.placeholdersList = []
   }
 
   ngOnInit(): void {
-    this.httpGeradorDeDadosService.getPlaceholder().subscribe(response =>{
+    this.httpApiPlaceholderClient.getPlaceholder().subscribe(response =>{
         this.placeholdersList = response
     })
   }

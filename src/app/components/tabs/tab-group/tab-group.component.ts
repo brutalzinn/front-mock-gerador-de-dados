@@ -33,8 +33,7 @@ export class TabGroupComponent implements OnInit {
     }
     let tab : ITab = {
       name: nameTab,
-      visivel: visivel,
-      custom: [{key:"example", value:"this is test"}]
+      visivel: visivel
     }
     this.tabs = [...this.tabs, tab]
   }
@@ -50,18 +49,7 @@ export class TabGroupComponent implements OnInit {
       this.tabs.splice(index, 1)
   }
 
-  showFormToRename(index: number): void{
-     this.formToRename = true;
-  }
-
-  saveNewName(index: number): void{
-     this.tabs[index].name = this.nameTab
-     this.formToRename = false
-     this.form.get('nameTab')?.setValue("")
-  }
-
-
-    get nameTab (): string {
+  get nameTab (): string {
     return this.form.get('nameTab')?.value
   }
 }

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/cor
 import { TabGroupComponent } from '../tab-group/tab-group.component';
 import saveAs from 'file-saver';
 import { ICustomPlaceholder, ITab } from 'src/app/interfaces/tab.interface';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tab-menu',
@@ -13,10 +14,15 @@ export class TabMenuComponent implements OnInit {
   public customPlaceholders: Array<ICustomPlaceholder> = [];
   public formToRename: boolean;
   public formAdvanced: boolean;
+
+  public form = new FormGroup({
+    nameTab: new FormControl(""),
+})
+
   constructor() {
       this.formAdvanced = false
       this.formToRename = false
-   }
+  }
   ngOnInit(): void {
   }
 
@@ -24,21 +30,27 @@ export class TabMenuComponent implements OnInit {
       this.tabs.splice(tabIndex, 1)
   }
 
-  showFormToRename(tabIndex: number): void{
-     this.formToRename = true;
-  }
 
-  showFormAdvanced(tabIndex: number): void{
+  showFormAdvanced(): void{
      this.formAdvanced = true;
   }
+  showFormToRename(): void{
+    this.formToRename = true;
+ }
 
-  saveTabsAdvanced(tabIndex: number): void{
-    this.tabs[tabIndex].custom = this.customPlaceholders
-    this.closeAdvancedForm()
-  }
+ saveNewName(index: number): void{
+    this.tabs[index].name = this.nameTab
+    this.formToRename = false
+    this.form.get('nameTab')?.setValue("")
+ }
 
   addCustomVar(tabIndex: number): void{
+    let item = this.tabs[tabIndex].custom
     this.customPlaceholders?.push({key:"example", value:"this is test"})
+  }
+
+  saveCustomVar(tabIndex: number): void{
+    this.tabs[tabIndex].custom = this.customPlaceholders
     this.closeAdvancedForm()
   }
 
@@ -49,5 +61,9 @@ export class TabMenuComponent implements OnInit {
 
   closeAdvancedForm(){
     this.formAdvanced = false
+  }
+
+  get nameTab (): string {
+    return this.form.get('nameTab')?.value ?? ""
   }
 }

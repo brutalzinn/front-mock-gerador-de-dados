@@ -35,7 +35,7 @@ export class OptionsComponent implements OnInit {
       reader.readAsText(event.target.files[0], 'utf-8');
     }
     catch (exception) {
-      alert("Consegui ler essa bagaça não. Rodou o teste?")
+      alert("Error on load json")
     }
   }
 
